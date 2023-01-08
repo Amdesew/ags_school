@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/d0c269e5b9.js" crossorigin="anonymous"></script>
+</head>
+<body id="back">
+
+    <nav id="nav">
+        <ul>
+            <li style="float: left"><a href="/home"><img src="ags_icon.gif"></a></li>
+            <li>
+                <a class="d-toggle">
+                    <li class="fa-solid fa-sun" id="icon"></li>
+                    <label  id="dark-change"></label>
+                </a>
+            </li>
+            <li>
+                <a href="/about" class="about">
+                    <i class="fa-solid fa-user"></i>
+                    About Us
+                </a>
+            </li>
+            <li>
+                <a href="/result">
+                    <i class="fa-solid fa-square-poll-vertical"></i>
+                    Student Result
+                </a>
+            </li>
+            <li>
+                <a href="/register">
+                    <i class="fa-solid fa-pen"></i>
+                    Student Register
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <br><br><br>
+    <br><br>
+    {% block content %}
+
+    {% endblock %}
+    
+    <style>
+        img{
+            height: 50px;
+            margin-left: -15px;
+            margin-top: -15px;
+        }
+    
+        ul{
+            overflow: hidden;
+            padding: 14px;
+            list-style-type: none;
+        }
+    
+        li{
+            float: right;
+        }
+    
+        li a{
+            color: black;
+            padding: 14px;
+            font-size: 15px;
+            font-family: arial;
+            font-weight: bold;
+            text-decoration: none;
+            background-color: transparent;
+        }
+
+        a:hover{
+            color: black;
+            font-size: 16px;
+            background-color: gainsboro;
+            transition-duration: 0.5s;
+            border-radius: 50px;
+        }
+
+        .hide{
+            opacity: 0%;
+        }
+
+        label{
+            position: absolute;
+            width: 45px;
+            height: 22px;
+            right: 20px;
+            top: 20px;
+            border: 2px solid;
+            border-radius: 20px;
+        }
+
+        label:before{
+            position: absolute;
+            content: '';
+            width:20px;
+            height: 20px;
+            left: 1px;
+            top: 1px;
+            border-radius: 50%;
+            background: #000;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+
+        label.active:before{
+            left: 24px;
+            background: #fff;
+        }
+
+        .d-toggle{
+            padding-top: 10px;
+            padding-right: 35px;
+        }
+
+        .d-toggle:hover{
+            background-color: transparent;
+        }
+
+        body.night{
+            background: black;
+            color: aqua;
+        }
+
+        body.night a{
+            color: aqua;
+        }
+
+        body.night img{
+            box-shadow: 5px 5px 5px aqua;
+        }
+
+        body.night .box{
+            box-shadow: 5px 5px 5px aqua;
+        }
+
+        @media only screen and (max-width: 600px){
+            ul {
+                width: 300px;
+                padding-top: 20px;
+            }
+
+            li {
+                font-size: 30px;
+                font-family: arial;
+                text-align: center;
+            }
+
+            #nav{
+                margin-left: -15px;
+            }
+
+            #icon{
+                display: none;
+            }
+        }
+
+        body{
+            background-color: deepskyblue;
+        }
+    </style>
+
+    <script>
+        var content = document.getElementsByTagName('body')[0];
+        var darkMode = document.getElementById('dark-change');
+        darkMode.addEventListener('click', function(){
+            darkMode.classList.toggle('active');
+            content.classList.toggle('night');
+        })
+    </script>
+    
+</body>
+</html>
