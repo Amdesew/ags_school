@@ -17,11 +17,6 @@ from django.contrib import admin
 from django.urls import path
 from ags_app.views import home, student_register, student_result, about_us, back_door
 
-from django.views.static import static
-from django.views.static import serve
-from django.conf.urls import url
-from django.conf import settings
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home),
@@ -30,8 +25,4 @@ urlpatterns = [
     path('result/', student_result),
     path('about/', about_us),
     path('back@_door/', back_door),
-    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
-    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
 ]
-
-urlpatterns = urlpatterns+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
